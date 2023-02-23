@@ -7,3 +7,4 @@ class ProblemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Problem
         fields = '__all__'
+        read_only_fields = ['owner']

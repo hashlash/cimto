@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'rules.apps.AutodiscoverRulesConfig',
     'cimto.accounts',
     'cimto.problems',
 ]
@@ -83,6 +84,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# Auth Backend
+# https://docs.djangoproject.com/en/4.1/ref/settings/#authentication-backends
+
+AUTHENTICATION_BACKENDS = [
+    'rules.permissions.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 
 # Custom User
@@ -141,5 +151,5 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
 }
