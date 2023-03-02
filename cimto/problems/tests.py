@@ -86,7 +86,8 @@ class ProblemTestCase(APITestCase):
 
     def _test_unauthenticated_problem_creation(self):
         # Current implementation of django-rules returns 403 instead of 401 when no credential is provided.
-        # TODO: remove the _ prefix to activate this test when the login on django-rules is fixed.
+        # PR: https://github.com/dfunckt/django-rules/pull/175
+        # TODO: remove the _ prefix to activate this test when the auth on django-rules is fixed.
         self.client.credentials()
         response = self.client.post(
             reverse('problem-list'),
