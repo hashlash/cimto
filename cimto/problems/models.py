@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
+from django.db.models.constraints import UniqueConstraint
+from django.utils.text import Truncator
 from rules import always_allow, is_authenticated
 from rules.contrib.models import RulesModel
 
@@ -23,6 +26,4 @@ class Problem(RulesModel):
         }
 
     def __str__(self):
-        if self.title:
-            return self.title
-        return super().__str__()
+        return self.title or Truncator(self.description).chars(100)
