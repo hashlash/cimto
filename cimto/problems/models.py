@@ -13,7 +13,7 @@ class Problemset(models.Model):
     title = models.CharField(max_length=255)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     description = models.TextField(blank=True)
-    problems = models.ManyToManyField('Problem', through='ProblemsetProblem')
+    problems = models.ManyToManyField('Problem', related_name='problemsets', through='ProblemsetProblem')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -22,8 +22,26 @@ class Problemset(models.Model):
 
 
 class ProblemsetProblem(models.Model):
-    problemset = models.ForeignKey('Problemset', on_delete=models.CASCADE)
-    problem = models.ForeignKey('Problem', on_delete=models.PROTECT)
+    problemset = models.ForeignKey(
+        'Problemset',
+        on_delete=models.CASCADE,
+        related_name='problem_mapping',
+    )
+    number = models.PositiveSmallIntegerField()
+    problem = models.ForeignKey(
+        'Problem',
+        on_delete=models.PROTECT,
+        related_name='problemset_mapping',
+    )
+
+    class Meta:
+        ordering = ['number']
+        constraints = [
+            UniqueConstraint(
+                fields=['problemset', 'number'],
+                name='unique_problemset_problem_number',
+            ),
+        ]
 
 
 class Problem(RulesModel):
