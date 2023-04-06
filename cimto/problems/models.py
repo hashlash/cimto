@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models import Q
 from django.db.models.constraints import UniqueConstraint
+from django.utils.functional import cached_property
 from django.utils.text import Truncator
 from rules import always_allow, is_authenticated
 from rules.contrib.models import RulesModel
@@ -33,6 +34,7 @@ class ProblemsetProblem(models.Model):
         on_delete=models.PROTECT,
         related_name='problemset_mapping',
     )
+    is_origin = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['number']
@@ -40,6 +42,11 @@ class ProblemsetProblem(models.Model):
             UniqueConstraint(
                 fields=['problemset', 'number'],
                 name='unique_problemset_problem_number',
+            ),
+            UniqueConstraint(
+                fields=['problem'],
+                condition=Q(is_origin=True),
+                name='unique_problem_origin',
             ),
         ]
 
@@ -62,3 +69,10 @@ class Problem(RulesModel):
 
     def __str__(self):
         return self.title or Truncator(self.description).chars(100)
+
+    @cached_property
+    def origin(self):
+        try:
+            return self.problemsets.get(problem_mapping__is_origin=True)
+        except Problem.DoesNotExist:
+            return None
