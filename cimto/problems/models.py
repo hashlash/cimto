@@ -55,7 +55,6 @@ class Problem(RulesModel):
     title = models.CharField(max_length=255, blank=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     description = models.TextField()
-    answer_key = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -76,3 +75,7 @@ class Problem(RulesModel):
             return self.problemsets.get(problem_mapping__is_origin=True)
         except Problem.DoesNotExist:
             return None
+
+class AnswerKey(models.Model):
+    problem = models.ForeignKey('Problem', on_delete=models.CASCADE, related_name='answer_keys')
+    answer = models.CharField(max_length=255)
