@@ -13,6 +13,7 @@ class ProblemsetProblemInline(admin.TabularInline):
 @admin.register(Problemset)
 class ProblemsetAdmin(admin.ModelAdmin):
     inlines = [ProblemsetProblemInline]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 class AnswerKeyInline(admin.TabularInline):
@@ -23,3 +24,4 @@ class AnswerKeyInline(admin.TabularInline):
 @admin.register(Problem)
 class ProblemAdmin(admin.ModelAdmin):
     inlines = [AnswerKeyInline]
+    prepopulated_fields = {'slug': ('title',)}
