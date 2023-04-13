@@ -12,6 +12,7 @@ from cimto.problems.rules import is_problem_owner
 
 class Problemset(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255, unique=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     description = models.TextField(blank=True)
     problems = models.ManyToManyField('Problem', related_name='problemsets', through='ProblemsetProblem')
@@ -53,12 +54,20 @@ class ProblemsetProblem(models.Model):
 
 class Problem(RulesModel):
     title = models.CharField(max_length=255, blank=True)
+    slug = models.CharField(max_length=255, blank=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        constraints = [
+            UniqueConstraint(
+                fields=['slug'],
+                condition=~Q(slug=''),
+                name='unique_problem_slug',
+            ),
+        ]
         rules_permissions = {
             'add': is_authenticated,
             'delete': is_problem_owner,
