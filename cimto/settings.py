@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rules.apps.AutodiscoverRulesConfig',
     'cimto.accounts',
     'cimto.problems',
+    'cimto.problemset',
 ]
 
 MIDDLEWARE = [
