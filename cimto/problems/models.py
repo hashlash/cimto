@@ -14,6 +14,12 @@ class Problem(RulesModel):
     title = models.CharField(max_length=255, blank=True)
     slug = models.CharField(max_length=255, blank=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.PROTECT,
+        related_name='subproblems',
+        null=True, blank=True,
+    )
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
