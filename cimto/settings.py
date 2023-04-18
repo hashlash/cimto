@@ -40,6 +40,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rules.apps.AutodiscoverRulesConfig',
+    # Both django-ckeditor and django-tinymce (currently) use nearly deprecated editor
+    # (ckeditor4 and tinymce5). See these issues for information about the version bump:
+    # - https://github.com/django-ckeditor/django-ckeditor/issues/482
+    # - https://github.com/jazzband/django-tinymce/issues/426
+    # TODO: revisit the version bump discussion or check https://github.com/hvlads/django-ckeditor-5
+    'ckeditor',
+    # Bleach is deprecated (https://github.com/mozilla/bleach/issues/698).
+    # TODO: check alternative(s), such as nh3 (https://github.com/marksweb/django-nh3).
+    'django_bleach',
     'cimto.accounts',
     'cimto.problems',
     'cimto.problemset',
@@ -154,3 +163,16 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+
+# django-bleach settings
+# https://django-bleach.readthedocs.io/en/latest/settings.html
+
+BLEACH_ALLOWED_TAGS = [
+    # visual representation
+    'b', 'i', 'u',
+    # semantic styling
+    'em', 'strong',
+    # other
+    'a', 'p',
+]
