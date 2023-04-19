@@ -1,9 +1,13 @@
+from html import unescape
+
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
 from django.db.models.constraints import UniqueConstraint
 from django.utils.functional import cached_property
+from django.utils.html import strip_tags
 from django.utils.text import Truncator
+from django_bleach.models import BleachField
 from rules import always_allow, is_authenticated
 from rules.contrib.models import RulesModel
 
@@ -20,7 +24,7 @@ class Problem(RulesModel):
         related_name='subproblems',
         null=True, blank=True,
     )
-    description = models.TextField()
+    description = BleachField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -40,7 +44,7 @@ class Problem(RulesModel):
         }
 
     def __str__(self):
-        return self.title or Truncator(self.description).chars(100)
+        return self.title or Truncator(unescape(strip_tags(self.description))).chars(100)
 
     @cached_property
     def origin(self):
