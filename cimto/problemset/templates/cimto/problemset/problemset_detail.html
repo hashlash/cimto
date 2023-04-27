@@ -1,13 +1,13 @@
 <h1>{{ problemset.title }}</h1>
-
 <p>{{ problemset.description }}</p>
 
 {% for problem in problems %}
-{% for ancestor in problem.ancestors %}
-<div>
+  {% for ancestor in problem.ancestors %}
+  <div>
     <strong>Description for numbers: {{ ancestor.numbers|join:', ' }}</strong>
     {{ ancestor.description }}
-</div>
-{% endfor %}
-<span>{{ problem.number }}</span>{{ problem.description }}
+  </div>
+  {% endfor %}
+  <span>{{ problem.number }}</span>
+  {{ problem.description }}
 {% endfor %}
