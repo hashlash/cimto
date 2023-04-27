@@ -16,4 +16,5 @@ class ProblemAdmin(admin.ModelAdmin):
         BleachField: {'widget': CKEditorWidget},
     }
     inlines = [AnswerKeyInline]
+    list_display = ['__str__', 'description']
     prepopulated_fields = {'slug': ('title',)}
