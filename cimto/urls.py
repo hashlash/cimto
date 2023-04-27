@@ -18,6 +18,8 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
+from cimto.problemset.views import ProblemsetDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('cimto.api.urls')),
@@ -30,4 +32,5 @@ urlpatterns = [
         template_name='swagger-ui.html',
         extra_context={'schema_url':'openapi-schema'}
     ), name='swagger-ui'),
+    path('<slug:slug>/', ProblemsetDetailView.as_view())
 ]
