@@ -25,6 +25,7 @@ class Problem(RulesModel):
         null=True, blank=True,
     )
     description = BleachField()
+    tags = models.ManyToManyField('tags.Tag')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
