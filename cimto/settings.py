@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cimto.accounts',
     'cimto.problems',
     'cimto.problemset',
+    'cimto.tags',
 ]
 
 MIDDLEWARE = [
