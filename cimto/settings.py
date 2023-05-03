@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # TODO: check alternative(s), such as nh3 (https://github.com/marksweb/django-nh3).
     'django_bleach',
     'cimto.accounts',
+    'cimto.importer',
     'cimto.problems',
     'cimto.problemset',
     'cimto.tags',
