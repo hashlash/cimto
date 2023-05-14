@@ -7,18 +7,21 @@ from django.utils.text import slugify
 
 from cimto.problems.models import Problem
 from cimto.problemset.models import Problemset, ProblemsetProblem
+from cimto.tags.models import Tag
 
 DEFAULT_USER_USERNAME = 'kujawab'
 
 
 class KujawabProblemsetImporter:
-    def __init__(self, url, user=None, tags=None):
+    def __init__(self, url, user=None, tag_labels=None):
         self.url = url
         if user is None:
             User = get_user_model()
             user, _ = User.objects.get_or_create(username='kujawab')
         self.user = user
-        self.tags = tags or []
+        if tag_labels is None:
+            tag_labels = []
+        self.tags = Tag.objects.get_tags(labels=tag_labels, create_missing=True)
         self.problems = {}
         self.shared_descriptions = []
 
@@ -58,9 +61,9 @@ class KujawabProblemsetImporter:
                 slug=f"{slugify(self.title)}-{desc['begin']}-{desc['end']}",
                 owner=self.user,
                 description=desc['description'],
-                # tags=self.tags,  # TODO: can't directly set m2m, fix this
             )
             p.save()
+            p.tags.add(*self.tags)
             problems.append(p)
         parents = {}
         for p, d in zip(problems, self.shared_descriptions):
@@ -79,9 +82,9 @@ class KujawabProblemsetImporter:
                 owner=self.user,
                 parent=parents[number],
                 description=desc,
-                # tags=self.tags,  # TODO: can't directly set m2m, fix this
             )
             p.save()
+            p.tags.add(*self.tags)
             problems.append(p)
 
         # problemset problems

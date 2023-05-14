@@ -9,6 +9,7 @@ from cimto.importer.kujawab import (
 )
 from cimto.problems.models import Problem
 from cimto.problemset.models import Problemset, ProblemsetProblem
+from cimto.tags.models import Tag
 
 
 class KujawabProblemsetTest(TestCase):
@@ -55,7 +56,7 @@ class KujawabProblemsetTest(TestCase):
         )
     
     def test_import_data(self):
-        importer = KujawabProblemsetImporter('https://kujawab.com/OSKKOM17')
+        importer = KujawabProblemsetImporter('https://kujawab.com/OSKKOM17', tag_labels=['tag1', 'tag2'])
         importer.title = 'Test Title'
         importer.problems = {
             1: '''
@@ -89,15 +90,18 @@ class KujawabProblemsetTest(TestCase):
         problemset = Problemset.objects.first()
         self.assertEqual(problemset.title, importer.title)
         problems = []
+        tags = Tag.objects.get_tags(labels=['tag1', 'tag2'])
         for pp in problemset.problem_mapping.all():
             problem = pp.problem
             problems.append(problem)
             self.assertHTMLEqual(importer.problems[pp.number], problem.description)
+            self.assertQuerysetEqual(problem.tags.all(), tags, ordered=False)
         self.assertEqual(problems[0].parent, problems[1].parent)
         self.assertHTMLEqual(
             problems[0].parent.description,
             importer.shared_descriptions[0]['description'],
         )
+        self.assertQuerysetEqual(problems[0].parent.tags.all(), tags, ordered=False)
 
 
 class KujawabSiteTest(TestCase):
