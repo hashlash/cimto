@@ -26,4 +26,4 @@ class Tag(models.Model):
     objects = TagQuerySet.as_manager()
 
     def __str__(self):
-        return self.name
+        return self.label
