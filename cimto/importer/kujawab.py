@@ -11,6 +11,15 @@ from cimto.tags.models import Tag
 
 DEFAULT_USER_USERNAME = 'kujawab'
 
+osn_re = re.compile(
+    r'Olimpiade Sains (?:Kota|Provinsi|Nasional) \((?P<stage>OSK|OSP|OSN)\) '
+    r'(?P<year>\d+) - (?P<science>\w+)(?: (?P<grade>SMA))?'
+)
+
+
+def osn_repl(m):
+    return f"{m['stage']} {m['science']} {m['grade'] or 'SMA'} {m['year']}"
+
 
 class KujawabProblemsetImporter:
     def __init__(self, url, user=None, tag_labels=None):
@@ -47,7 +56,7 @@ class KujawabProblemsetImporter:
     def import_data(self):
         problemset = Problemset.objects.create(
             title=self.title,
-            slug=slugify(self.title),
+            slug=slugify(osn_re.sub(osn_repl, self.title)),
             owner=self.user,
         )
 

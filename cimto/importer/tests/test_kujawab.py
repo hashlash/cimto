@@ -57,7 +57,7 @@ class KujawabProblemsetTest(TestCase):
     
     def test_import_data(self):
         importer = KujawabProblemsetImporter('https://kujawab.com/OSKKOM17', tag_labels=['tag1', 'tag2'])
-        importer.title = 'Test Title'
+        importer.title = 'Olimpiade Sains Kota (OSK) 2013 - Komputer'
         importer.problems = {
             1: '''
             <p>Example Description</p>
@@ -89,6 +89,7 @@ class KujawabProblemsetTest(TestCase):
         self.assertEqual(ProblemsetProblem.objects.count(), 2)
         problemset = Problemset.objects.first()
         self.assertEqual(problemset.title, importer.title)
+        self.assertEqual(problemset.slug, 'osk-komputer-sma-2013')
         problems = []
         tags = Tag.objects.get_tags(labels=['tag1', 'tag2'])
         for pp in problemset.problem_mapping.all():
