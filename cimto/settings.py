@@ -172,9 +172,11 @@ REST_FRAMEWORK = {
 
 BLEACH_ALLOWED_TAGS = [
     # visual representation
-    'b', 'i', 'u',
+    'b', 'i', 'u', 'pre',
     # semantic styling
-    'em', 'strong',
-    # other
+    'em', 'strong', 'code',
+    # components
     'a', 'p',
+    # table
+    'table', 'tbody', 'tr', 'td',
 ]

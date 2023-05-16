@@ -3,6 +3,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from django.contrib.auth import get_user_model
+from django.db import transaction
 from django.utils.text import slugify
 
 from cimto.problems.models import Problem
@@ -53,6 +54,7 @@ class KujawabProblemsetImporter:
                     'end': int(number_end),
                 })
     
+    @transaction.atomic
     def import_data(self):
         problemset = Problemset.objects.create(
             title=self.title,
@@ -110,6 +112,18 @@ class KujawabProblemsetImporter:
 
 class KujawabSiteImporter:
     SOURCE_BASE_URL = 'https://kujawab.com/'
+    CATEGORY_TAG = {
+        'Komputer': 'informatics',
+        'Matematika': 'mathematics',
+        'Fisika': 'physics',
+        'Kimia': 'chemistry',
+        'Biologi': 'biology',
+        'Astronomi': 'astronomy',
+        'Kebumian': 'earth-science',
+        'Ekonomi': 'economy',
+        'Geografi': 'geography', 
+    
+    }
 
     def get_problemset_links(self):
         r = requests.get(self.SOURCE_BASE_URL)
@@ -124,3 +138,15 @@ class KujawabSiteImporter:
             cat.h4.a.text.strip(): {link['href'] for link in cat.table.find_all('a')}
             for cat in categories.find_all('div', recursive=False)
         }
+    
+    @transaction.atomic
+    def import_data(self):
+        cat_links = self.get_problemset_links()
+        for cat, links in cat_links.items():
+            for link in links:
+                imp = KujawabProblemsetImporter(
+                    link,
+                    tag_labels=[self.CATEGORY_TAG[cat]]
+                )
+                imp.get_data()
+                imp.import_data()
