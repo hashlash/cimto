@@ -41,7 +41,7 @@ class KujawabProblemsetImporter:
 
         for entry in soup.find('div', 'problems').find_all('div', recursive=False):
             if 'problem' in entry['class']:
-                number, desc = entry.div.find_all('div')  # .problems > div.row > div
+                number, desc = entry.div.find_all('div', recursive=False)  # div.problem > div.row > div
                 self.problems[int(number.text)] = desc.decode_contents().strip()
      
             elif 'extra-description' in entry['class']:
@@ -67,7 +67,7 @@ class KujawabProblemsetImporter:
         for desc in self.shared_descriptions:
             p = Problem(
                 title=f"{self.title}: {desc['begin']} - {desc['end']}",
-                slug=f"{slugify(self.title)}-{desc['begin']}-{desc['end']}",
+                slug=f"{problemset.slug}-{desc['begin']}-{desc['end']}",
                 owner=self.user,
                 description=desc['description'],
             )
@@ -87,9 +87,9 @@ class KujawabProblemsetImporter:
         for number, desc in problem_tuples:
             p = Problem(
                 title=f"{self.title}: {number}",
-                slug=f'{slugify(self.title)}-{number}',
+                slug=f'{problemset.slug}-{number}',
                 owner=self.user,
-                parent=parents[number],
+                parent=parents.get(number, None),
                 description=desc,
             )
             p.save()
@@ -121,12 +121,6 @@ class KujawabSiteImporter:
             .div.div  # .row > .col-sm-8
         )
         return {
-            cat.h4.a.text.strip(): [
-                {
-                    'name': link.text.strip(),
-                    'url': link['href']
-                }
-                for link in cat.table.find_all('a')
-            ]
+            cat.h4.a.text.strip(): {link['href'] for link in cat.table.find_all('a')}
             for cat in categories.find_all('div', recursive=False)
         }

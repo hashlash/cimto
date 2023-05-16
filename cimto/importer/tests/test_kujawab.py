@@ -75,6 +75,14 @@ class KujawabProblemsetTest(TestCase):
             <p>d. option 4</p>
             <p>e. option 5</p>
             ''',
+            3: '''
+            <p>Example Description 3</p>
+            <p>a. option 1</p>
+            <p>b. option 2</p>
+            <p>c. option 3</p>
+            <p>d. option 4</p>
+            <p>e. option 5</p>
+            ''',
         }
         importer.shared_descriptions = [{
             'description': '''
@@ -85,8 +93,8 @@ class KujawabProblemsetTest(TestCase):
         }]
         importer.import_data()
         self.assertEqual(Problemset.objects.count(), 1)
-        self.assertEqual(Problem.objects.count(), 3)
-        self.assertEqual(ProblemsetProblem.objects.count(), 2)
+        self.assertEqual(Problem.objects.count(), 4)
+        self.assertEqual(ProblemsetProblem.objects.count(), 3)
         problemset = Problemset.objects.first()
         self.assertEqual(problemset.title, importer.title)
         self.assertEqual(problemset.slug, 'osk-komputer-sma-2013')
@@ -113,7 +121,7 @@ class KujawabSiteTest(TestCase):
             m.text = f.read()
             mock_req_get.return_value = m
         cat_problem_num = {
-            'Komputer': 26,
+            'Komputer': 25,  # OSK 2018 duplicated
             'Matematika': 7,
             'Fisika': 3,
             'Kimia': 1,
@@ -124,12 +132,12 @@ class KujawabSiteTest(TestCase):
             'Geografi': 1,
         }
         importer = KujawabSiteImporter()
-        links = importer.get_problemset_links()
+        cat_links = importer.get_problemset_links()
         validate_url = URLValidator()
-        for key, value in links.items():
-            self.assertEqual(len(value), cat_problem_num[key])
-            for link in value:
+        for cat, links in cat_links.items():
+            self.assertEqual(len(links), cat_problem_num[cat])
+            for link in links:
                 try:
-                    validate_url(link['url'])
+                    validate_url(link)
                 except ValidationError as e:
                     self.fail(e.message)
