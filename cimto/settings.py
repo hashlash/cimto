@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # TODO: check alternative(s), such as nh3 (https://github.com/marksweb/django-nh3).
     'django_bleach',
     'cimto.accounts',
+    'cimto.importer',
     'cimto.problems',
     'cimto.problemset',
     'cimto.tags',
@@ -171,9 +172,11 @@ REST_FRAMEWORK = {
 
 BLEACH_ALLOWED_TAGS = [
     # visual representation
-    'b', 'i', 'u',
+    'b', 'i', 'u', 'pre',
     # semantic styling
-    'em', 'strong',
-    # other
+    'em', 'strong', 'code',
+    # components
     'a', 'p',
+    # table
+    'table', 'tbody', 'tr', 'td',
 ]

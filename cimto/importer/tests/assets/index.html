@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="google-signin-scope" content="openid profile email">
+    <meta name="google-signin-client_id" content="870348892679-h792a6of7gt41ne6r7t1e36ss8ci1p8v.apps.googleusercontent.com">
+    <meta
+      name="description"
+      content="Kujawab adalah tempat berisi kumpulan soal dan jawaban."
+    />
+    <meta property="og:image" content="http://kujawab.com/images/favicon.png"/>
+    <meta
+      name="keywords"
+      content="komputer,olimpiade,informatika,matematika,
+      sma,sains,osn,osk,osp,pembahasan"
+    />
+    <title> Beranda  &middot; Kujawab</title>
+    <link media="all" type="text/css" rel="stylesheet" href="https://kujawab.com/bootstraps/css/bootstrap.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://kujawab.com/general/css/main.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://kujawab.com/general/css/pnotify.custom.min.css">
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <script type="text/javascript">
+              window.userId = 101;
+          </script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+		<script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </script>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#0098A6" onload="onLoad()">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kujawab.com" style="padding:10px 20px">
+      <img src="https://kujawab.com/kujawab.png" height="100%" alt="kujawab">
+      </a>
+    </div>
+    <form
+      class="navbar-form pull-left hidden-xs"
+      method="GET"
+      action="https://kujawab.com/search"
+      style="width:200px">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control search-bar"
+          placeholder="Cari pertanyaan..."
+          name="q"
+                  />
+        <div class="input-group-btn">
+          <button class="btn btn-default search-button" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://kujawab.com" style="color:#ffffff">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Beranda
+          </a>
+        </li>
+                          <li><a href="https://kujawab.com/notifications" style="color:#ffffff"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notifikasi</a></li>
+          <li>
+            <a href="https://kujawab.com/user/ashlah" style="color:#ffffff">
+              <img src="https://kujawab.com/profpic_placeholder.jpg" width="24" height="24" alt="Muhammad">
+              Muhammad
+            </a>
+          </li>
+          <li><a href="https://kujawab.com/logout" style="color:#ffffff">Keluar</a></li>
+              </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>      <div class="factory-promote" style="text-align:center; margin-top:-15px; margin-bottom:20px">
+        <a href="https://bit.ly/KujawabEduFin">Baru: Kujawab EduFin - Program bantuan keuangan untuk kebutuhan pendidikan. Klik disini..</a>
+      </div>
+        <div class="pull-right">
+    <a href="problemfactory" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      Tambah Soal
+    </a>
+  </div>
+  <div class="container-fluid" style="margin-top:20px">
+    <div class="row">
+      <div class="col-sm-8">
+                        <h4 style="margin-bottom:20px">
+          Kumpulan Soal dan Jawaban Olimpiade Sains
+        </h4>
+        <hr/>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading1">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse1" 
+                    aria-expanded="true" 
+                    aria-controls="collapse1">
+                    Komputer
+                  </a>
+                  <small>26 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse1" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading1">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM07">
+                          Olimpiade Sains Kota (OSK) 2007 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        139
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM08">
+                          Olimpiade Sains Kota (OSK) 2008 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        108
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM09">
+                          Olimpiade Sains Kota (OSK) 2009 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        68
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM10">
+                          Olimpiade Sains Kota (OSK) 2010 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        96
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM11">
+                          Olimpiade Sains Kota (OSK) 2011 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        96
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM12">
+                          Olimpiade Sains Kota (OSK) 2012 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        88
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM13">
+                          Olimpiade Sains Kota (OSK) 2013 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        68
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM14">
+                          Olimpiade Sains Kota (OSK) 2014 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        131
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM15">
+                          Olimpiade Sains Kota (OSK) 2015 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        161
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM16">
+                          Olimpiade Sains Kota (OSK) 2016 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        237
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM17">
+                          Olimpiade Sains Kota (OSK) 2017 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        40
+                      </td>
+                      <td>
+                        117
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM18">
+                          Olimpiade Sains Kota (OSK) 2018 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        36
+                      </td>
+                      <td>
+                        147
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM18">
+                          Olimpiade Sains Kota (OSK) 2018 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        36
+                      </td>
+                      <td>
+                        0
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKOM19">
+                          Olimpiade Sains Kota (OSK) 2019 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        36
+                      </td>
+                      <td>
+                        46
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSNKOM06">
+                          Olimpiade Sains Nasional (OSN) 2006 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        4
+                      </td>
+                      <td>
+                        5
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSNKOM14">
+                          Olimpiade Sains Nasional (OSN) 2014 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        11
+                      </td>
+                      <td>
+                        4
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM10">
+                          Olimpiade Sains Provinsi (OSP) 2010 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        40
+                      </td>
+                      <td>
+                        57
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM11">
+                          Olimpiade Sains Provinsi (OSP) 2011 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        40
+                      </td>
+                      <td>
+                        57
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM12">
+                          Olimpiade Sains Provinsi (OSP) 2012 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        68
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM13">
+                          Olimpiade Sains Provinsi (OSP) 2013 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        147
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM14">
+                          Olimpiade Sains Provinsi (OSP) 2014 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        153
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM15">
+                          Olimpiade Sains Provinsi (OSP) 2015 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        166
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM16">
+                          Olimpiade Sains Provinsi (OSP) 2016 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        48
+                      </td>
+                      <td>
+                        122
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM17">
+                          Olimpiade Sains Provinsi (OSP) 2017 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        47
+                      </td>
+                      <td>
+                        107
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPKOM18">
+                          Olimpiade Sains Provinsi (OSP) 2018 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        43
+                      </td>
+                      <td>
+                        134
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/PRAOSPDKIKOM15">
+                          Pra-OSP DKI Jakarta 2015 - Komputer
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        132
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading2">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse2" 
+                    aria-expanded="true" 
+                    aria-controls="collapse2">
+                    Matematika
+                  </a>
+                  <small>7 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse2" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading2">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/IMO2016">
+                          International Mathematic Olympiad (2016)
+                        </a>
+                      </td>
+                      <td>
+                        6
+                      </td>
+                      <td>
+                        0
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/LTJJMAT-SIM1-16">
+                          LTJJ Matematika Simulasi I (2016)
+                        </a>
+                      </td>
+                      <td>
+                        10
+                      </td>
+                      <td>
+                        6
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKMATSMA15">
+                          Olimpiade Sains Kota (OSK) 2015 - Matematika SMA
+                        </a>
+                      </td>
+                      <td>
+                        20
+                      </td>
+                      <td>
+                        59
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKMAT16">
+                          Olimpiade Sains Kota (OSK) 2016 - Matematika
+                        </a>
+                      </td>
+                      <td>
+                        20
+                      </td>
+                      <td>
+                        22
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSNMATSMA14">
+                          Olimpiade Sains Nasional (OSN) 2014 - Matematika SMA
+                        </a>
+                      </td>
+                      <td>
+                        8
+                      </td>
+                      <td>
+                        3
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSNMATSMA15">
+                          Olimpiade Sains Nasional (OSN) 2015 - Matematika SMA
+                        </a>
+                      </td>
+                      <td>
+                        8
+                      </td>
+                      <td>
+                        2
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPMATSMA15">
+                          Olimpiade Sains Provinsi (OSP) 2015 - Matematika SMA
+                        </a>
+                      </td>
+                      <td>
+                        21
+                      </td>
+                      <td>
+                        26
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading3">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse3" 
+                    aria-expanded="true" 
+                    aria-controls="collapse3">
+                    Fisika
+                  </a>
+                  <small>3 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse3" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading3">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKFISSMA09">
+                          Olimpiade Sains Kota (OSK) 2009 - Fisika SMA
+                        </a>
+                      </td>
+                      <td>
+                        7
+                      </td>
+                      <td>
+                        3
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPFISSMA09">
+                          Olimpiade Sains Provinsi (OSP) 2009 - Fisika SMA
+                        </a>
+                      </td>
+                      <td>
+                        7
+                      </td>
+                      <td>
+                        3
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPFISSMA15">
+                          Olimpiade Sains Provinsi (OSP) 2015 - Fisika SMA
+                        </a>
+                      </td>
+                      <td>
+                        7
+                      </td>
+                      <td>
+                        5
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading4">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse4" 
+                    aria-expanded="true" 
+                    aria-controls="collapse4">
+                    Kimia
+                  </a>
+                  <small>1 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse4" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading4">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKIM14">
+                          Olimpiade Sains Kota (OSK) 2014 - Kimia
+                        </a>
+                      </td>
+                      <td>
+                        30
+                      </td>
+                      <td>
+                        33
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading5">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse5" 
+                    aria-expanded="true" 
+                    aria-controls="collapse5">
+                    Biologi
+                  </a>
+                  <small>1 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse5" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading5">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKBIO15">
+                          Olimpiade Sains Kota (OSK) 2015 - Biologi 
+                        </a>
+                      </td>
+                      <td>
+                        100
+                      </td>
+                      <td>
+                        85
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading6">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse6" 
+                    aria-expanded="true" 
+                    aria-controls="collapse6">
+                    Astronomi
+                  </a>
+                  <small>2 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse6" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading6">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKAST16">
+                          Olimpiade Sains Kota (OSK) Astronomi 2016
+                        </a>
+                      </td>
+                      <td>
+                        30
+                      </td>
+                      <td>
+                        19
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPAST15">
+                          Olimpiade Sains Provinsi (OSP) 2015 - Astronomi
+                        </a>
+                      </td>
+                      <td>
+                        27
+                      </td>
+                      <td>
+                        19
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading7">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse7" 
+                    aria-expanded="true" 
+                    aria-controls="collapse7">
+                    Kebumian
+                  </a>
+                  <small>1 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse7" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading7">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKKEB15">
+                          Olimpiade Sains Kota (OSK) 2015 - Kebumian
+                        </a>
+                      </td>
+                      <td>
+                        100
+                      </td>
+                      <td>
+                        175
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading8">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse8" 
+                    aria-expanded="true" 
+                    aria-controls="collapse8">
+                    Ekonomi
+                  </a>
+                  <small>7 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse8" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading8">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKEKO09">
+                          Olimpiade Sains Kota (OSK) 2009 - Ekonomi 
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        12
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKEKO10">
+                          Olimpiade Sains Kota (OSK) 2010 - Ekonomi 
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        61
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKEKO12">
+                          Olimpiade Sains Kota (OSK) 2012 - Ekonomi
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        12
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKEKO14">
+                          Olimpiade Sains Kota (OSK) 2014 - Ekonomi
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        38
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKEKO15">
+                          Olimpiade Sains Kota (OSK) 2015 - Ekonomi
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        96
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSNEKO07">
+                          Olimpiade Sains Nasional (OSN) 2007 - Ekonomi 
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        18
+                      </td>
+                    </tr>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSPEKO10">
+                          Olimpiade Sains Provinsi (OSP) 2010 - Ekonomi
+                        </a>
+                      </td>
+                      <td>
+                        50
+                      </td>
+                      <td>
+                        24
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div 
+            class="panel-group" 
+            id="accordion" 
+            role="tablist" 
+            aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading9">
+                <h4 class="panel-title">
+                  <a 
+                    data-toggle="collapse" 
+                    data-parent="#accordion" 
+                    href="#collapse9" 
+                    aria-expanded="true" 
+                    aria-controls="collapse9">
+                    Geografi
+                  </a>
+                  <small>1 set soal</small>
+                </h4>
+              </div>
+              <div 
+                id="collapse9" 
+                class="panel-collapse collapse" 
+                role="tabpanel" 
+                aria-labelledby="heading9">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Set Soal</th>
+                        <th>Jumlah Soal</th>
+                        <th>Jumlah Jawaban</th>
+                      </tr>
+                    </thead>
+                                        <tr>
+                      <td>
+                        <a href="https://kujawab.com/OSKGEO15">
+                          Olimpiade Sains Kota (OSK) 2015 - Geografi
+                        </a>
+                      </td>
+                      <td>
+                        90
+                      </td>
+                      <td>
+                        149
+                      </td>
+                    </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+      <div class="col-sm-4">
+        <div 
+          class="fb-like-box" 
+          style="margin-top:33px"
+          data-href="https://www.facebook.com/kujawabdotcom"
+          data-colorscheme="light" 
+          data-show-faces="true" 
+          data-header="false" 
+          data-stream="false" 
+          data-show-border="false">
+        </div>
+        <div style="margin-top:20px">
+          <div style="margin-bottom:10px"><b>Kontributor Teraktif:</b></div>
+          <table>
+                        <tr>
+              <td class="avatar" style="width:50px; height:50px">
+                <a href="/user/coderbodoh">
+                  <img src="/uploads/coderbodoh/profpic.jpg" style="width:40px;height:40px;">
+                </a>
+              </td>
+              <td>
+                <div><a href="/user/coderbodoh">Mamat Rahmat</a></div>
+                <small>
+                  <span class="glyphicon glyphicon-star"></span>
+                  173 Poin
+                </small>
+              </td>
+            </tr>
+                        <tr>
+              <td class="avatar" style="width:50px; height:50px">
+                <a href="/user/MbahBejo">
+                  <img src="/uploads/MbahBejo/profpic.jpg" style="width:40px;height:40px;">
+                </a>
+              </td>
+              <td>
+                <div><a href="/user/MbahBejo">Thomas Dwi Awaka</a></div>
+                <small>
+                  <span class="glyphicon glyphicon-star"></span>
+                  164 Poin
+                </small>
+              </td>
+            </tr>
+                        <tr>
+              <td class="avatar" style="width:50px; height:50px">
+                <a href="/user/AmethRianno">
+                  <img src="/uploads/AmethRianno/profpic.jpg" style="width:40px;height:40px;">
+                </a>
+              </td>
+              <td>
+                <div><a href="/user/AmethRianno">Noya Aldiputera</a></div>
+                <small>
+                  <span class="glyphicon glyphicon-star"></span>
+                  105 Poin
+                </small>
+              </td>
+            </tr>
+                      </table>
+        </div>
+        <div class="row text-center" id="answerLoading">
+          <img 
+            src="https://kujawab.com/images/loading.gif" 
+            style="width:50px;margin-top:20px" 
+            class="text-center" 
+            ng-if="!state.answerLoaded"
+          />
+        </div>
+        <div 
+          class="recent-answers" 
+          ng-controller="RecentAnswerCtrl" 
+          id="recentAnswer" 
+          style="display:none;margin-top:20px">
+          <b>Jawaban terbaru</b><br/>
+          <div class="media" ng-repeat="answer in data.answers">
+            <div class="media-body">
+              <a ng-href="{[{ answer.problem.url }]}">
+                {[{ answer.problem.problemset.name }]}, 
+                nomor {[{ answer.problem.number }]}
+              </a><br />
+              Oleh
+              <a ng-href="{[{ answer.author.url }]}">
+              {[{ answer.author.firstname + " " + answer.author.lastname }]}
+              </a>
+              <small>
+                {[{ answer.created_at | timeDifference }]}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <hr/>
+    <div class="footer">
+      Baru: <b>Kujawab Edufin</b> - Program bantuan keuangan untuk kebutuhan pendidikan. 
+      <a href="https://bit.ly/KujawabEduFin">Daftar disini</a>
+      <br/>
+      &copy; Kujawab 2022
+    </div>
+    <script
+      type="text/javascript"
+      data-main="https://kujawab.com/javascripts/angular/main.js"
+      src="https://kujawab.com/javascripts/angular/libs/require/require.min.js">
+    </script>
+    <script
+      type="text/javascript"
+      src="http://latex.codecogs.com/latexit.js">
+    </script>
+    <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId       : '398328140343635',
+        xfbml       : true,
+        cookie      : true,
+        status      : true,
+        version     : 'v2.5'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/id_ID/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>    <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58962116-1', 'auto');
+  ga('send', 'pageview');
+</script>  </body>
+</html>
