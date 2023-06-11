@@ -7,7 +7,7 @@ class ProblemsetDetailView(DetailView):
     model = Problemset
     context_object_name = 'problemset'
     template_name = 'cimto/problemset/problemset_detail.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['problems'] = []

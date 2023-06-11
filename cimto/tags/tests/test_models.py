@@ -24,7 +24,7 @@ class TagModelTest(TestCase):
         self.assertEqual(len(tags), 1)
         self.assertEqual(tags[0].label, 'tag1')
         self.assertEqual(Tag.objects.count(), 2)
-        # create missing 
+        # create missing tags
         tags = Tag.objects.get_tags(['tag1', 'tag3', 'tag4'], create_missing=True)
         self.assertEqual(len(tags), 3)
         self.assertEqual(tags[0].label, 'tag1')
