@@ -44,7 +44,7 @@ class KujawabProblemsetImporter:
             if 'problem' in entry['class']:
                 number, desc = entry.div.find_all('div', recursive=False)  # div.problem > div.row > div
                 self.problems[int(number.text)] = desc.decode_contents().strip()
-     
+
             elif 'extra-description' in entry['class']:
                 m = re.search(r'Deskripsi untuk soal nomor\s+(\d+)\s+-\s+(\d+)', str(entry.p))
                 number_begin, number_end = m.groups()
@@ -53,7 +53,7 @@ class KujawabProblemsetImporter:
                     'begin': int(number_begin),
                     'end': int(number_end),
                 })
-    
+
     @transaction.atomic
     def import_data(self):
         problemset = Problemset.objects.create(
@@ -78,7 +78,7 @@ class KujawabProblemsetImporter:
             problems.append(p)
         parents = {}
         for p, d in zip(problems, self.shared_descriptions):
-            for i in range(d['begin'], d['end']+1):
+            for i in range(d['begin'], d['end'] + 1):
                 parents[i] = p
 
         # problems
@@ -121,8 +121,7 @@ class KujawabSiteImporter:
         'Astronomi': 'astronomy',
         'Kebumian': 'earth-science',
         'Ekonomi': 'economy',
-        'Geografi': 'geography', 
-    
+        'Geografi': 'geography',
     }
 
     def get_problemset_links(self):
@@ -138,7 +137,7 @@ class KujawabSiteImporter:
             cat.h4.a.text.strip(): {link['href'] for link in cat.table.find_all('a')}
             for cat in categories.find_all('div', recursive=False)
         }
-    
+
     @transaction.atomic
     def import_data(self):
         cat_links = self.get_problemset_links()

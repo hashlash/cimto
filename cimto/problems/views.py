@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rules.contrib.rest_framework import AutoPermissionViewSetMixin
 
 from cimto.problems.models import Problem

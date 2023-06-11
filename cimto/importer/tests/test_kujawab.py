@@ -52,9 +52,9 @@ class KujawabProblemsetTest(TestCase):
             <p>c. 12</p>
             <p>d. 18</p>
             <p>e. 24</p>
-            '''
+            '''  # noqa
         )
-    
+
     def test_import_data(self):
         importer = KujawabProblemsetImporter('https://kujawab.com/OSKKOM17', tag_labels=['tag1', 'tag2'])
         importer.title = 'Olimpiade Sains Kota (OSK) 2013 - Komputer'

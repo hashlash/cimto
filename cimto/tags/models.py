@@ -6,13 +6,13 @@ class TagQuerySet(models.QuerySet):
         if create_missing:
             tags = []
             with transaction.atomic(using=self.db):
-                for l in labels:
-                    tag, _ = self.get_or_create(label=l)
+                for label in labels:
+                    tag, _ = self.get_or_create(label=label)
                     tags.append(tag)
             return tags
         tags = self.filter(label__in=labels)
         if raise_exception and len(tags) != len(labels):
-            missing_tag_labels = [l for l in labels if l not in {t.label for t in tags}]
+            missing_tag_labels = [label for label in labels if label not in {t.label for t in tags}]
             raise self.model.DoesNotExist(
                 f"Missing tags with labels: {', '.join(missing_tag_labels)}."
             )

@@ -16,11 +16,11 @@ class ProblemsetViewTest(TestCase):
         )
 
     def test_problem_ancestor_context(self):
-        """Test the following structure
+        r"""Test the following structure
               A
-            / |  \ 
+            / |  \
           B   C    D
-         / \     / | \ 
+         / \     / | \
         E   F   G  H  I
         """
         a = Problem.objects.create(owner=self.test_user, description='A')
