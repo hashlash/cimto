@@ -6,5 +6,7 @@ from .base import *  # noqa
 
 ALLOWED_HOSTS = ['cimto.fly.dev']
 
+CSRF_TRUSTED_ORIGINS = ['https://cimto.fly.dev']
+
 if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config()  # noqa: F405
