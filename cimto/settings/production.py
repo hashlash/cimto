@@ -17,4 +17,6 @@ if 'DATABASE_URL' in os.environ:
 
 # put whitenoise after security middleware
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # noqa: F405
+
+STATIC_ROOT = BASE_DIR / 'static'  # noqa: F405
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
