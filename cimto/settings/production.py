@@ -4,6 +4,10 @@ import dj_database_url
 
 from .base import *  # noqa
 
+SECRET_KEY = os.environ['SECRET_KEY']
+
+DEBUG = False
+
 ALLOWED_HOSTS = ['cimto.fly.dev']
 
 CSRF_TRUSTED_ORIGINS = ['https://cimto.fly.dev']
