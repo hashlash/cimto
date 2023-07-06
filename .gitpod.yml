@@ -1,7 +1,16 @@
 tasks:
-  - init: |
-      eval $(gp env -e DJANGO_SETTINGS_MODULE=cimto.settings.gitpod)
+  - name: Dependency Installation
+    init: |
       pip install -U pip wheel setuptools
       pip install -r requirements/dev.txt
+      gp sync-done pip-install
+  - name: Pre-commit Setup
+    init: |
+      eval $(gp env -e PRE_COMMIT_HOME=/workspace/pre-commit)
+      gp sync-await pip-install
       pre-commit install --install-hooks
+  - name: Django Setup
+    init: |
+      eval $(gp env -e DJANGO_SETTINGS_MODULE=cimto.settings.gitpod)
+      gp sync-await pip-install
       python manage.py migrate
