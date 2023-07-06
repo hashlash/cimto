@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.db.models import Q
-from django.db.models.constraints import UniqueConstraint
+from django.db.models import F, Q
 from django_bleach.models import BleachField
 
 
@@ -35,11 +34,16 @@ class ProblemsetProblem(models.Model):
     class Meta:
         ordering = ['number']
         constraints = [
-            UniqueConstraint(
+            models.UniqueConstraint(F('number').desc(), name='lksdjflkdsj'),
+            models.UniqueConstraint(
+                fields=['problemset', 'problem'],
+                name='unique_problemset_problem',
+            ),
+            models.UniqueConstraint(
                 fields=['problemset', 'number'],
                 name='unique_problemset_problem_number',
             ),
-            UniqueConstraint(
+            models.UniqueConstraint(
                 fields=['problem'],
                 condition=Q(is_origin=True),
                 name='unique_problem_origin',
