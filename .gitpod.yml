@@ -1,0 +1,7 @@
+tasks:
+  - init: |
+      eval $(gp env -e DJANGO_SETTINGS_MODULE=cimto.settings.gitpod)
+      pip install -U pip wheel setuptools
+      pip install -r requirements/dev.txt
+      pre-commit install --install-hooks
+      python manage.py migrate
