@@ -9,8 +9,15 @@ tasks:
       eval $(gp env -e PRE_COMMIT_HOME=/workspace/pre-commit)
       gp sync-await pip-install
       pre-commit install --install-hooks
+      gp sync-done precommit-setup
   - name: Django Setup
     init: |
       eval $(gp env -e DJANGO_SETTINGS_MODULE=cimto.settings.gitpod)
       gp sync-await pip-install
       python manage.py migrate
+      gp sync-done django-setup
+  - name: Terminal
+    init: |
+      gp sync-await pip-install
+      gp sync-await precommit-setup
+      gp sync-await django-setup
