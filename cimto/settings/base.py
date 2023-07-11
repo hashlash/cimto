@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cimto.importer',
     'cimto.problems',
     'cimto.problemset',
+    'cimto.submissions',
     'cimto.tags',
 ]
 
